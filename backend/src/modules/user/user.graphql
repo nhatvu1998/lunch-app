@@ -1,0 +1,19 @@
+type UserEntity {
+  _id: ID
+  username: String
+  password: String
+  role: String
+}
+
+type Query {
+  getAllUsers: [UserEntity]
+}
+
+input InputChangePassword {
+  password: String!
+  newPassword: String!
+}
+
+type Mutation {
+  changePassword(userData: InputChangePassword): UserEntity
+}

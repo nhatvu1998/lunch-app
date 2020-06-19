@@ -1,0 +1,23 @@
+type Query {
+  shops: [Shop]
+  shop(id: String!): Shop!
+  findShopBySiteId(id: String!): [Shop]!
+}
+
+input InputCreateShop {
+  name: String!
+  siteId: String!
+}
+
+type Shop {
+  _id: ID
+  name: String!
+  siteId: String!
+  dishes: [Dish!]!
+}
+
+type Mutation {
+  createShop(data: InputCreateShop!): Shop!
+  deleteShop(id: String!): Shop!
+  editShop(id: String!, newName: String!): Shop!
+}

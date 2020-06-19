@@ -1,0 +1,18 @@
+type Query {
+  dishes: [Dish]
+}
+
+type Mutation {
+  addDish(dish: DishInput): Dish
+}
+
+input DishInput {
+  name: String!
+  shopId: String!
+}
+
+type Dish {
+  _id: ID
+  name: String
+  shopId: String
+}

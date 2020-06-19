@@ -1,0 +1,19 @@
+type Query {
+  sites: [Site]
+  site(id: String!): Site!
+}
+
+input InputCreateSite {
+  name: String!
+}
+
+type Site {
+  _id: ID
+  name: String
+  shops: [Shop!]!
+}
+
+type Mutation {
+  createSite(data: InputCreateSite!): Site!
+  deleteSite(id: String!): Site!
+}

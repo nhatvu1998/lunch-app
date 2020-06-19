@@ -1,0 +1,14 @@
+// .babelrc
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "@digihcs/innos-ui3",
+        "libraryDirectory": "es",
+        "style": true
+      },
+      "@digihcs/innos-ui3"
+    ]
+  ]
+}

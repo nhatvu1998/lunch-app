@@ -1,0 +1,62 @@
+type Query {
+  menu: [Menu]
+  findById(id: String!): Menu!
+  findMenuBySiteId(siteId: String!): [Menu]!
+  findPublishMenu(siteId: String!): [Menu]!
+}
+
+type DishInfo {
+	_id: ID
+	name: String
+	orderCount: Int
+	count: Int
+}
+
+input DishMenuInput {
+  _id: ID
+	name: String!
+	orderCount: Int!
+	count: Int!
+}
+
+input FileInput {
+  name: String,
+  count: Int
+}
+
+input InputCreateMenu {
+  name: String!
+  siteId: String!
+  shopId: String!
+  dishes: [DishMenuInput]
+}
+
+input InputAddDish {
+  menuId: String!
+  dishes: [DishMenuInput]
+}
+
+type Menu {
+  _id: ID
+  name: String!
+  isPublish: Boolean!
+  isLocked: Boolean!
+  siteId: String!
+  shopId: String!
+  dishes: [DishInfo]
+}
+
+type Mutation {
+  createMenu(data: InputCreateMenu!): Menu!
+  addDishes(data: InputAddDish): Menu!
+  importMenu(_id:String!, shopId:String!,fileInput:[FileInput]!): Menu
+  publishMenu(id: String!) : Menu
+  lockMenu(siteId: String!) : Menu
+  updateMenu(menuId: String, dishes: [DishMenuInput]): Menu
+  # deleteShop(id: String!): Shop!
+  # editShop(name: String!, newName: String!): Shop!
+}
+
+type Subscription {
+  menuUpdate: Menu!
+}

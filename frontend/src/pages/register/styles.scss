@@ -1,0 +1,38 @@
+$bg-login: url(../../assets/images/bg-login.jpg);
+.layout-register {
+  background-image: $bg-login;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  .right-layout{
+    height: 100vh;
+    background-color: #fff;
+    padding: 56px 40px;
+    .header{
+      display: flex;
+      justify-content: center;
+      img{
+        width: 50%;
+        height: 50%;
+        padding-bottom: 30px;
+        vertical-align: middle;
+        border-style: none;
+      }
+    }
+    .register-form{
+      input{
+        border-radius: 0;
+        border: 1px solid #666;
+        font-size: 12px;
+      }
+      .register-form-button{
+        width: 100%;
+        background: #43a2dd;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 0;
+      }
+    }
+    
+  }
+}

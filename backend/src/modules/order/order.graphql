@@ -1,0 +1,40 @@
+type Order {
+  _id: ID
+  user: UserEntity
+  menu: Menu
+  dishId: ID
+  count: Int
+  isConfirmed: Boolean
+  note: String
+}
+
+input InputCreateOrder {
+  menuId: ID!
+  dishId: ID!
+}
+
+input InputCreateOrderByAdmin {
+  menuId: ID!
+  userId: ID!
+  dishId: ID!
+}
+
+type Query {
+  orders: [Order!]!
+  orderByUser(menuId: ID!): Order!
+  findOrderByUserId:Order!
+  findOrderByMenuId(menuId: String!): [Order]!
+}
+
+type Mutation {
+  createOrder(input: InputCreateOrder!): Order
+  createOrderByAdmin(input: InputCreateOrderByAdmin!): Order
+  deleteOrder(dishId: String!): Boolean
+  deleteOrderByAdmin(dishId: String!, userId: String!): Boolean
+  addNote(input: String!): Order
+  confirmEat: Order
+}
+
+type Subscription {
+  orderUpdate: Order!
+}

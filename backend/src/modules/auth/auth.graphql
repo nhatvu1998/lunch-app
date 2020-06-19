@@ -1,0 +1,20 @@
+
+type AccessTokenDto {
+  token: String!
+}
+
+input InputLogin {
+  username: String!
+  password: String!
+}
+
+input InputRegister {
+  username: String!
+  password: String!
+  passwordCheck: String!
+}
+
+type Mutation {
+  register(userData: InputRegister!): UserEntity!
+  login(userData: InputLogin!): AccessTokenDto!
+}
